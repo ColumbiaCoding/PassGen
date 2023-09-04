@@ -10,9 +10,9 @@ let containsLowercase = false;
 let containsUppercase = false;
 let containsSpecial = false;
 let containsNumbers = false;
-// const typesCount = containsLowercase + containsUppercase + containsSpecial + containsNumbers;
+// The variables contain various characater types such as containsLowercase + containsUppercase + containsSpecial + containsNumbers;
 
-//get user parameters for password
+//writing a function to get parameters to generate password
 function getParams() {
 
   passwordLength = Number(prompt("Enter a number from 8-128"));
@@ -32,7 +32,7 @@ function getParams() {
 }
 
 
-// check if there is a valid choice
+// validating if the there is a valid input given by the user
 function isAcceptable() {
   if (containsLowercase || containsUppercase || containsSpecial || containsNumbers) {
 
@@ -43,7 +43,7 @@ function isAcceptable() {
   }
 }
 
-//check password lenth is greater than 8 and less than 128
+//Validing the password length
 function validLen() {
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     alert("invalid selction detected")
@@ -53,20 +53,7 @@ function validLen() {
     return true
   }
 }
-
-
-
-
-
-//if the variable for upper, lower, number and special are all not false continue othewise request addition information from user
-
-
-
-
-// password types: uppercase letter, lowercase letter, special character, number
-
-// generating Functions
-//Generate lower Char
+//Generating random lowercase characters
 function getRandomLower() {
   if (containsLowercase != false && newPassword.length < passwordLength) {
     return lowercaseLetters.charAt(Math.floor(Math.random() * lowercaseLetters.length));
@@ -75,7 +62,7 @@ function getRandomLower() {
   }
 }
 
-//Generate upper Char
+//Generating random uppercase characters
 function getRandomUpper() {
   if (containsUppercase != false && newPassword.length < passwordLength) {
     return uppercaseLetters.charAt(Math.floor(Math.random() * uppercaseLetters.length));
@@ -84,7 +71,7 @@ function getRandomUpper() {
   }
 }
 
-//Generate random whole number
+//Generating random number
 function getRandomNumber() {
   if (containsNumbers != false && newPassword.length < passwordLength) {
     return numbers.charAt(Math.floor(Math.random() * numbers.length));
@@ -93,7 +80,7 @@ function getRandomNumber() {
     return ""
   }
 }
-//Generate random symbol
+//Generating random symbol characters
 function getRandomSymbol() {
   if (containsSpecial != false && newPassword.length < passwordLength) {
     return specialCharacters.charAt(Math.floor(Math.random() * specialCharacters.length));
@@ -101,7 +88,7 @@ function getRandomSymbol() {
     return ""
   }
 }
-//make sure one of each chosen type is in the password
+// validing that each character type is chosen.
 function initPass() {
   // debugger;
 
@@ -115,7 +102,7 @@ function initPass() {
   console.log(newPassword)
 }
 
-//Generates the remaining characters of the password
+//Generating entire length of the password
 function genPass() {
   if (newPassword.length < passwordLength) {
     newPassword = newPassword.concat(getRandomLower())
